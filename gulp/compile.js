@@ -1,11 +1,13 @@
 
-// const nunjucks = require('gulp-nunjucks');
-// const fs = require('fs');
+const nunjucks = require('gulp-nunjucks');
+const fs = require('fs');
 
-// const pages = JSON.parse( fs.readFileSync('./api/pages.json', { encoding: 'utf8' }));
+gulp.task('render', () => {
 
-// const homepage = posts[0]; // for this project we only have one page, index.html
+	const pages = JSON.parse( fs.readFileSync('./api/pages.json', { encoding: 'utf8' }));
+		homepage = posts[0]; // for this project we only have one page, index.html
+		res = nunjucks.render('src/index.html', homepage);
 
-// const res = nunjucks.render('pages/post.html', posts[item]);
+		fs.writeFile('dist/index.html', res);
+})l
 
-// fs.writeFile('dist/' + posts[item].slug + '.html', res);
