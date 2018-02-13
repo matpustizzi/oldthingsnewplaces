@@ -12,7 +12,7 @@ const gulp = require('gulp'),
 // content type 'page' contains one entry representing th homepage
 // page content type has slug 'categoryOrder', this needs fixing
 gulp.task('fetch', () => {
-  client.getEntries( { content_type: 'categoryOrder', include : 10 } )
+  var req = client.getEntries( { content_type: 'categoryOrder', include : 10 } )
     .then((resp) => {
         const data = resp.items.map((item,i) => item.fields);
         fs.writeFileSync('api/pages.json', stringify(data, null, 2)); 
@@ -20,4 +20,6 @@ gulp.task('fetch', () => {
     ).catch((err) => {
       gutil.log("Error: " + err.code)
     });
+    
+    return req;
 });
