@@ -1,6 +1,6 @@
 const gulp        = require('gulp'),
-    browserSync = require('browser-sync').create();
-    sass        = require('gulp-sass');
+    browserSync = require('browser-sync').create(),
+    sass        = require('gulp-sass'),
     reload      = browserSync.reload,
     src = {
         scss: 'src/scss/*.scss',
