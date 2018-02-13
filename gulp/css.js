@@ -4,21 +4,10 @@ const sass        = require('gulp-sass');
 const reload      = browserSync.reload;
 
 const src = {
-    scss: 'app/scss/*.scss',
-    css:  'app/css',
-    html: 'app/*.html'
+    scss: 'src/scss/*.scss',
+    css:  'build/css',
+    html: 'build/*.html'
 };
-
-// Static Server + watching scss/html files
-gulp.task('serve', ['sass','bundle'], function() {
-
-    browserSync.init({
-        server: "./app"
-    });
-
-    gulp.watch(src.scss, ['sass']);
-    gulp.watch(src.html).on('change', reload);
-});
 
 // Compile sass into CSS
 gulp.task('sass', function() {
@@ -28,27 +17,39 @@ gulp.task('sass', function() {
         .pipe(reload({stream: true}));
 });
 
+// Static Server + watching scss/html files
+gulp.task('serve', ['fetch','render','sass','bundle'], function() {
+
+    browserSync.init({
+        server: "./build"
+    });
+
+    gulp.watch(src.scss, ['sass']);
+    gulp.watch(src.html).on('change', reload);
+});
+
+
+
 gulp.task('default', ['serve']);
 
 //js
 
-const gutil       = require('gulp-util');
-const source      = require('vinyl-source-stream');
-const babelify    = require('babelify');
-const watchify    = require('watchify');
-const exorcist    = require('exorcist');
-const browserify  = require('browserify');
-const browserSync = require('browser-sync').create();
+const gutil       = require('gulp-util'),
+    source      = require('vinyl-source-stream'),
+    babelify    = require('babelify'),
+    watchify    = require('watchify'),
+    exorcist    = require('exorcist'),
+    browserify  = require('browserify');
 
 // Watchify args contains necessary cache options to achieve fast incremental bundles.
 // See watchify readme for details. Adding debug true for source-map generation.
 watchify.args.debug = true;
 // Input file.
-const bundler = watchify(browserify('./app/js/app.js', watchify.args));
+const bundler = watchify(browserify('./src/js/app.js', watchify.args));
 
 // Babel transform
 bundler.transform(babelify.configure({
-    sourceMapRelative: 'app/js'
+    sourceMapRelative: 'build/js'
 }));
 
 // On updates recompile
@@ -64,9 +65,9 @@ function bundle() {
             browserSync.notify("Browserify Error!");
             this.emit("end");
         })
-        .pipe(exorcist('app/js/dist/bundle.js.map'))
+        .pipe(exorcist('build/js/dist/bundle.js.map'))
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('./app/js/dist'))
+        .pipe(gulp.dest('./build/js/dist'))
         .pipe(browserSync.stream({once: true}));
 }
 
