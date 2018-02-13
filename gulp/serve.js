@@ -1,13 +1,12 @@
-const gulp        = require('gulp');
-const browserSync = require('browser-sync').create();
-const sass        = require('gulp-sass');
-const reload      = browserSync.reload;
-
-const src = {
-    scss: 'src/scss/*.scss',
-    css:  'build/css',
-    html: 'src/*.html'
-};
+const gulp        = require('gulp'),
+    browserSync = require('browser-sync').create();
+    sass        = require('gulp-sass');
+    reload      = browserSync.reload,
+    src = {
+        scss: 'src/scss/*.scss',
+        css:  'build/css',
+        html: 'src/*.html'
+    };
 
 // Compile sass into CSS
 gulp.task('sass', function() {
@@ -25,16 +24,13 @@ gulp.task('serve', ['fetch','render','sass','bundle'], function() {
     });
 
     gulp.watch(src.scss, ['sass']);
-    gulp.watch(src.html, ['render']).on('change', reload);
+    gulp.watch('src/*.html', ['render']);
+    gulp.watch('build/*.html').on("change",reload);
 });
 
 
-
-gulp.task('default', ['serve']);
-
 //js
-
-const gutil       = require('gulp-util'),
+const gutil     = require('gulp-util'),
     source      = require('vinyl-source-stream'),
     babelify    = require('babelify'),
     watchify    = require('watchify'),
@@ -65,9 +61,9 @@ function bundle() {
             browserSync.notify("Browserify Error!");
             this.emit("end");
         })
-        .pipe(exorcist('build/js/dist/bundle.js.map'))
+        .pipe(exorcist('build/js/bundle.js.map'))
         .pipe(source('bundle.js'))
-        .pipe(gulp.dest('./build/js/dist'))
+        .pipe(gulp.dest('./build/js'))
         .pipe(browserSync.stream({once: true}));
 }
 
@@ -77,3 +73,5 @@ function bundle() {
 gulp.task('bundle', function () {
     return bundle();
 });
+
+gulp.task('default', ['serve']);

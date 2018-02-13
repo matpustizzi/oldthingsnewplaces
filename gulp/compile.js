@@ -5,8 +5,8 @@ const gulp = require('gulp'),
 	markdown = require('nunjucks-markdown'),
     marked = require('marked'),
 	fs = require('fs'),
-	templatesDir = 'src',
-	env = new nunjucks.Environment(new nunjucks.FileSystemLoader(templatesDir));
+	templatesDir = 'src',	
+	env = nunjucks.configure(templatesDir,{ watch: true, noCache : true });
 
 markdown.register(env, marked);
 	 

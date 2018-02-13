@@ -5,12 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{ title }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+    <script src="/js/bundle.js"></script>
 </head>
 <body>
-    {% markdown %}{{ sidebarText }}{% endmarkdown %}
-    {% include "project-grid.html" %}
+    <div class="grid">
+        <div class="column">
+            {% markdown %}{{ sidebarText }}{% endmarkdown %}
+        </div>
+        {% include "project-grid.html" %}    
+    </div>
     {% include "project-list.html" %}
 </body>
 </html>

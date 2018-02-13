@@ -1,9 +1,9 @@
 const gulp = require('gulp'),
   env = require('dotenv').config(),
   gutil = require('gulp-util'),
-  fs = require('fs')
+  fs = require('fs'),
   contentful = require('contentful'),
-  stringify = require('json-stringify-safe');
+  stringify = require('json-stringify-safe'),
   client = contentful.createClient({
     space: process.env.space_id, 
     accessToken: process.env.api_key
@@ -20,6 +20,5 @@ gulp.task('fetch', () => {
       }
     ).catch((err) => {
       gutil.log("Error: " + err.code)
-      process.exit(1)
     });
 });
