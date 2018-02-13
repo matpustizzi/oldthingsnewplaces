@@ -1,3 +1,7 @@
+$bp-large: "only screen and (min-width : 768px)";
+
+@import "normalize.css";
+
 html {
     box-sizing: border-box;
 }
@@ -6,8 +10,57 @@ html {
     box-sizing: inherit;
 }
 
-@import "normalize.css";
+img,video {
+    max-width:100%;
+}
 
 .main {
+    padding:15px;
+}
 
+.grid {
+    display:flex;
+    flex-direction:column;
+    @media #{$bp-large} {
+        flex-direction:row;
+    }
+    &__column {
+        display:none;
+        width:100%;
+        @media #{$bp-large} {
+            display: block;
+            width: 20%;
+        }
+        
+        &__hed {
+            
+        }
+        &--masthead {
+            display:block;
+            @media #{$bp-large} {
+                order: 10;
+            }
+        }
+        &--project-list {
+            display:block;
+            @media #{$bp-large} {
+                display:none;
+            }
+        }
+    }
+}
+
+.project {
+    &__hed {
+
+    }
+    &__dek {
+
+    }
+}
+
+.project-list {
+    @media #{$bp-large} {
+        display: none;
+    }
 }

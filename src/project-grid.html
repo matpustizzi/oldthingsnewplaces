@@ -1,10 +1,12 @@
 {% for column in categoryList %}
-    <div class="column">
-        <h2>{{ column.fields.title }}</h2>
+    <div class="grid__column">
+        <h2 class="grid__column__hed">{{ column.fields.title }}</h2>
         {% for project in column.fields.projectList %}
-            {% include "thumbnail.html" %}
-            {% if project.fields.title %}<h3>{{ project.fields.title }}</h3>{% endif %}
-            {% if project.fields.shortTitle %}<p>{{ project.fields.shortTitle }}</p>{% endif %}
+            <div class="project">
+                {% include "thumbnail.html" %}
+                {% if project.fields.title %}<h3 class="project__hed">{{ project.fields.title }}</h3>{% endif %}
+                {% if project.fields.shortTitle %}<p class="project__dek">{{ project.fields.shortTitle }}</p>{% endif %}
+            </div>
         {% endfor %}
     </div>
 {% endfor %}

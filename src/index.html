@@ -11,12 +11,13 @@
 <body>
     <main class="main">
         <div class="grid">
-            <div class="column">
+            <div class="grid__column grid__column--masthead">
                 {% markdown %}{{ sidebarText }}{% endmarkdown %}
             </div>
-            {% include "project-grid.html" %}    
+            {% include "project-grid.html" %}
+            {% include "project-list.html" %}    
         </div>
-        {% include "project-list.html" %}
+        
     </main>
 </body>
 </html>

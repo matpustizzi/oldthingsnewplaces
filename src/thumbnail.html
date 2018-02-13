@@ -2,10 +2,10 @@
     {% set thumb = project.fields.thumbnail.fields  %}
     {% set url = thumb.file.url %}
     {% if thumb.file.contentType === "video/mp4" %}
-        <video autoplay loop muted>
+        <video class="project__thumb project__thumb--video" autoplay loop muted>
             <source src="{{ url }}" type="video/mp4">
         </video>
     {% else %}
-        <img src="{{ url }}" alt="">
+        <img class="project__thumb" src="{{ url }}" alt="">
     {% endif %}
 {% endif %}
