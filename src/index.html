@@ -9,12 +9,14 @@
     <script src="/js/bundle.js"></script>
 </head>
 <body>
-    <div class="grid">
-        <div class="column">
-            {% markdown %}{{ sidebarText }}{% endmarkdown %}
+    <main class="main">
+        <div class="grid">
+            <div class="column">
+                {% markdown %}{{ sidebarText }}{% endmarkdown %}
+            </div>
+            {% include "project-grid.html" %}    
         </div>
-        {% include "project-grid.html" %}    
-    </div>
-    {% include "project-list.html" %}
+        {% include "project-list.html" %}
+    </main>
 </body>
 </html>

@@ -1,7 +1,8 @@
-const gulp        = require('gulp'),
+const gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
-    sass        = require('gulp-sass'),
-    reload      = browserSync.reload,
+    sass = require('gulp-sass'),
+    moduleImporter = require('sass-module-importer'),
+    reload  = browserSync.reload,
     src = {
         scss: 'src/scss/*.scss',
         css:  'build/css',
@@ -11,8 +12,9 @@ const gulp        = require('gulp'),
 // Compile sass into CSS
 gulp.task('sass', function() {
     return gulp.src(src.scss)
-        .pipe(sass().on('error', sass.logError))
+        .pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
         .pipe(gulp.dest(src.css))
+        
         .pipe(reload({stream: true}));
 });
 
