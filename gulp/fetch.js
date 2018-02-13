@@ -9,7 +9,6 @@ const gulp = require('gulp'),
     accessToken: process.env.api_key
   });
 
-
 // content type 'page' contains one entry representing th homepage
 // page content type has slug 'categoryOrder', this needs fixing
 gulp.task('fetch', () => {

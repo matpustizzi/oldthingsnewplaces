@@ -9,7 +9,6 @@ const gulp = require('gulp'),
         html: 'src/*.html'
     };
 
-// Compile sass into CSS
 gulp.task('sass', function() {
     return gulp.src(src.scss)
         .pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
@@ -17,7 +16,6 @@ gulp.task('sass', function() {
         .pipe(reload({stream: true}));
 });
 
-// Static Server
 gulp.task('serve', ['fetch','render','sass','bundle'], function() {
 
     browserSync.init({
@@ -38,18 +36,14 @@ const gutil     = require('gulp-util'),
     exorcist    = require('exorcist'),
     browserify  = require('browserify');
 
-// Watchify args contains necessary cache options to achieve fast incremental bundles.
-// See watchify readme for details. Adding debug true for source-map generation.
 watchify.args.debug = true;
-// Input file.
+
 const bundler = watchify(browserify('./src/js/app.js', watchify.args));
 
-// Babel transform
 bundler.transform(babelify.configure({
     sourceMapRelative: 'build/js'
 }));
 
-// On updates recompile
 bundler.on('update', bundle);
 
 function bundle() {
@@ -68,9 +62,6 @@ function bundle() {
         .pipe(browserSync.stream({once: true}));
 }
 
-/**
- * Gulp task alias
- */
 gulp.task('bundle', function () {
     return bundle();
 });
