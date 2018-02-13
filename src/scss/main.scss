@@ -3,11 +3,11 @@ $bp-large: "only screen and (min-width : 768px)";
 @import "normalize.css";
 
 html {
-    box-sizing: border-box;
+    box-sizing:border-box;
 }
 
 *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing:inherit;
 }
 
 img,video {
@@ -28,32 +28,37 @@ img,video {
         display:none;
         width:100%;
         @media #{$bp-large} {
-            display: block;
-            width: 20%;
+            display:block;
+            width:20%;
         }
         
         &__hed {
             
         }
+
         &--masthead {
             display:block;
             @media #{$bp-large} {
-                order: 10;
+                order:10;
             }
         }
+
         &--project-list {
             display:block;
             @media #{$bp-large} {
                 display:none;
             }
         }
+
     }
 }
 
 .project {
+
     &__hed {
 
     }
+
     &__dek {
 
     }
@@ -61,6 +66,6 @@ img,video {
 
 .project-list {
     @media #{$bp-large} {
-        display: none;
+        display:none;
     }
 }
