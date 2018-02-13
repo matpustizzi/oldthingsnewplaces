@@ -10,17 +10,7 @@
 </head>
 <body>
     {% markdown %}{{ sidebarText }}{% endmarkdown %}
-    {% for column in categoryList %}
-        <div class="column">
-            <h2>{{ column.fields.title }}</h2>
-            {% for project in column.fields.projectList %}
-               {% if project.fields.title %}<h3>{{ project.fields.title }}</h3>{% endif %}
-               {% if project.fields.shortTitle %}<p>{{ project.fields.shortTitle }}</p>{% endif %}
-               {% if project.fields.thumbnail %}
-                    {% include "media.html" %}
-                {% endif %}
-            {% endfor %}
-        </div>
-    {% endfor %}
+    {% include "project-grid.html" %}
+    {% include "project-list.html" %}
 </body>
 </html>
