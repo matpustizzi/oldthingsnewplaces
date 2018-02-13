@@ -14,7 +14,6 @@ gulp.task('sass', function() {
     return gulp.src(src.scss)
         .pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
         .pipe(gulp.dest(src.css))
-        
         .pipe(reload({stream: true}));
 });
 
