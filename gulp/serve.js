@@ -6,7 +6,7 @@ const reload      = browserSync.reload;
 const src = {
     scss: 'src/scss/*.scss',
     css:  'build/css',
-    html: 'build/*.html'
+    html: 'src/*.html'
 };
 
 // Compile sass into CSS
@@ -25,7 +25,7 @@ gulp.task('serve', ['fetch','render','sass','bundle'], function() {
     });
 
     gulp.watch(src.scss, ['sass']);
-    gulp.watch(src.html).on('change', reload);
+    gulp.watch(src.html, ['render']).on('change', reload);
 });
 
 
