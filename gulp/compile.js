@@ -1,4 +1,3 @@
-
 const gulp = require('gulp'),
 	nunjucks = require('nunjucks'),
 	gulpnunjucks = require('gulp-nunjucks'),
@@ -17,7 +16,6 @@ gulp.task('render', () => {
 
 	gulp.src([templatesDir + '/index.html'])
         .pipe(gulpnunjucks.compile( data , { env : env }))
-		.pipe(gulp.dest('build'))
-		
+		.pipe(gulp.dest('build'))		
 });
 

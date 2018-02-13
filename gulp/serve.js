@@ -16,7 +16,7 @@ gulp.task('sass', function() {
         .pipe(reload({stream: true}));
 });
 
-// Static Server + watching scss/html files
+// Static Server
 gulp.task('serve', ['fetch','render','sass','bundle'], function() {
 
     browserSync.init({

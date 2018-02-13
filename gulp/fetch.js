@@ -9,9 +9,9 @@ const gulp = require('gulp'),
     accessToken: process.env.api_key
   });
 
-// Get the posts data from the cloud CMS and stash it locally
+
 // content type 'page' contains one entry representing th homepage
-// 'page' content type has an id of 'categoryOrder', this needs fixing
+// page content type has slug 'categoryOrder', this needs fixing
 gulp.task('fetch', () => {
   client.getEntries( { content_type: 'categoryOrder', include : 10 } )
     .then((resp) => {
