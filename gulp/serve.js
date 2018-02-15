@@ -3,6 +3,7 @@ const gulp = require('gulp'),
     sass = require('gulp-sass'),
     moduleImporter = require('sass-module-importer'),
     reload  = browserSync.reload,
+    env = require('dotenv').config(),
     src = {
         scss: 'src/scss/*.scss',
         css:  'build/css',
@@ -10,8 +11,14 @@ const gulp = require('gulp'),
     };
 
 gulp.task('sass', function() {
+    var options = {
+        importer: moduleImporter()
+    }
+    
+    if(process.env.env != 'development') options.outputStyle = 'compressed'
+    
     return gulp.src(src.scss)
-        .pipe(sass({ importer: moduleImporter() }).on('error', sass.logError))
+        .pipe(sass(options).on('error', sass.logError))
         .pipe(gulp.dest(src.css))
         .pipe(reload({stream: true}));
 });
@@ -34,9 +41,11 @@ const gutil     = require('gulp-util'),
     babelify    = require('babelify'),
     watchify    = require('watchify'),
     exorcist    = require('exorcist'),
-    browserify  = require('browserify');
+    browserify  = require('browserify'),
+    plumber     = require('gulp-plumber');
 
 watchify.args.debug = true;
+watchify.args.verbose = true;
 
 const bundler = watchify(browserify('./src/js/app.js', watchify.args));
 
@@ -56,6 +65,7 @@ function bundle() {
             browserSync.notify("Browserify Error!");
             this.emit("end");
         })
+        .pipe(plumber())
         .pipe(exorcist('build/js/bundle.js.map'))
         .pipe(source('bundle.js'))
         .pipe(gulp.dest('./build/js'))

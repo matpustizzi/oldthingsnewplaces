@@ -1,6 +1,18 @@
 <div class="grid__column grid__column--project-list">
+    
     {% for project in projectList %}
-        {% if project.fields.title %}<h3>{{ project.fields.title }}</h3>{% endif %}
-        {% if project.fields.shortTitle %}<p>{{ project.fields.shortTitle }}</p>{% endif %}
+        <div class="project">
+            {% if project.fields.slides %}
+                <div class="slider">
+                    {% for slide in project.fields.slides %}
+                        {% if slide.fields.file %}
+                            <img data-flickity-lazyload="{{ slide.fields.file.url }}" alt="">
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+            {% if project.fields.title %}<h3>{{ project.fields.title }}</h3>{% endif %}
+            {% if project.fields.shortTitle %}<p>{{ project.fields.shortTitle }}</p>{% endif %}
+        </div>
     {% endfor %}
 </div>

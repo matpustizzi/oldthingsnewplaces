@@ -14,10 +14,13 @@
     "browser-sync": "^2.23.6",
     "browserify": "^16.1.0",
     "contentful": "^5.1.0",
+    "domready": "^1.0.8",
     "dotenv": "^5.0.0",
     "exorcist": "^1.0.0",
+    "flickity": "^2.0.10",
     "gulp": "^3.9.1",
     "gulp-nunjucks": "^3.1.1",
+    "gulp-plumber": "^1.2.0",
     "gulp-sass": "^3.1.0",
     "json-stringify-safe": "^5.0.1",
     "marked": "^0.3.12",
@@ -25,6 +28,7 @@
     "nunjucks-markdown": "^2.0.1",
     "require-dir": "^1.0.0",
     "sass-module-importer": "^1.4.0",
+    "slick-carousel": "^1.8.1",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.10.0"
   }
