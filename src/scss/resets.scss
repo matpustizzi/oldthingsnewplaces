@@ -1,0 +1,12 @@
+html {
+    box-sizing:border-box;
+}
+
+*, *:before, *:after {
+    box-sizing:inherit;
+}
+
+img,video {
+    max-width:100%;
+    margin-bottom:1.2em;
+}

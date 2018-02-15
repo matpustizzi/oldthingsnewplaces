@@ -1,24 +1,25 @@
-$bp-large: "only screen and (min-width : 768px)";
 
+@import "variables";
 @import "normalize.css";
+@import "resets";
 @import "fonts";
 
-html {
-    box-sizing:border-box;
-}
-
-*, *:before, *:after {
-    box-sizing:inherit;
-}
-
-img,video {
-    max-width:100%;
-}
-
 body {
-    font-family: "urw",Arial, Helvetica, sans-serif;
-    font-weight: 400;
+    font-family:"urw",Arial, Helvetica, sans-serif;
+    font-weight:400;
+    font-size:16px;
+    line-height:1.2;
 }
+
+h1,h2,h3,h4,h5,h6,p,img,video {
+    font-weight:400;
+    font-size:16px;
+    margin-top:0;
+    padding-top:0;
+    padding-bottom:0;
+    margin-bottom:0.8em;
+}
+
 .main {
     padding:15px;
 }
