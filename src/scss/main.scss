@@ -1,6 +1,7 @@
 $bp-large: "only screen and (min-width : 768px)";
 
 @import "normalize.css";
+@import "fonts";
 
 html {
     box-sizing:border-box;
@@ -14,6 +15,10 @@ img,video {
     max-width:100%;
 }
 
+body {
+    font-family: "urw",Arial, Helvetica, sans-serif;
+    font-weight: 400;
+}
 .main {
     padding:15px;
 }

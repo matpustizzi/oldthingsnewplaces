@@ -1,0 +1,43 @@
+@font-face {
+    font-family: "urw";
+    src: url("/fonts/urw-regular.eot");
+    src: url("/fonts/urw-regular.eot?#iefix") format("embedded-opentype"),
+        url("/fonts/urw-regular.woff") format("woff"),
+        url("/fonts/urw-regular.ttf") format("truetype"),
+        url("/fonts/urw-regular.svg#URW Grotesk T OT") format("svg");
+    font-style: normal;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "urw";
+    src: url("/fonts/urw-regular-italic.eot");
+    src: url("/fonts/urw-regular-italic.eot?#iefix") format("embedded-opentype"),
+        url("/fonts/urw-regular-italic.woff") format("woff"),
+        url("/fonts/urw-regular-italic.ttf") format("truetype"),
+        url("/fonts/urw-regular-italic.svg#URW Grotesk T OT") format("svg");
+    font-style: italic;
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: "urw";
+    src: url("/fonts/urw-bold.eot");
+    src: url("/fonts/urw-bold.eot?#iefix") format("embedded-opentype"),
+        url("/fonts/urw-bold.woff") format("woff"),
+        url("/fonts/urw-bold.ttf") format("truetype"),
+        url("/fonts/urw-bold.svg#URW Grotesk T OT") format("svg");
+    font-style: normal;
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: "urw";
+    src: url("/fonts/urw-bold-italic.eot");
+    src: url("/fonts/urw-bold-italic.eot?#iefix") format("embedded-opentype"),
+        url("/fonts/urw-bold-italic.woff") format("woff"),
+        url("/fonts/urw-bold-italic.ttf") format("truetype"),
+        url("/fonts/urw-bold-italic.svg#URW Grotesk T OT") format("svg");
+    font-style: italic;
+    font-weight: 700;
+}
