@@ -6,6 +6,10 @@ const gulp = require('gulp'),
 	fs = require('fs'),
 	templatesDir = 'src',	
 	env = nunjucks.configure(templatesDir,{ watch: true, noCache : true });
+	
+	env.addGlobal("getSlides", function(slides) {
+		return JSON.stringify(slides.map((slide,i)=>{ return slide.fields}));
+	});
 
 markdown.register(env, marked);
 	 
