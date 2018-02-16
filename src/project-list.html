@@ -6,13 +6,15 @@
                 <div class="slider">
                     {% for slide in project.fields.slides %}
                         {% if slide.fields.file %}
-                            <img data-flickity-lazyload="{{ slide.fields.file.url }}" alt="">
+                            <div class="slide">
+                                <img data-flickity-lazyload="{{ slide.fields.file.url }}" alt="">
+                            </div>
                         {% endif %}
                     {% endfor %}
                 </div>
             {% endif %}
             {% if project.fields.title %}<h3>{{ project.fields.title }}</h3>{% endif %}
-            {% if project.fields.shortTitle %}<p>{{ project.fields.shortTitle }}</p>{% endif %}
+            {% if project.fields.shortDescription %}<p>{{ project.fields.shortDescription }}</p>{% endif %}
         </div>
     {% endfor %}
 </div>
