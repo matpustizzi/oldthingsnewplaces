@@ -4,7 +4,7 @@
     left:0;
     right:0;
     bottom:0;
-    background-color:rgba($color: #000000, $alpha: .75);
+    //background-color:rgba($color: #000000, $alpha: .75);
     align-items: center;
     justify-content: center;
     display:none;
@@ -15,7 +15,43 @@
 }
 
 .modal-content {
-    background-color: white;
-    width:80%;
-    max-width:1200px;
+    width:percentage(900/1280);
+    height:50vw;
+    min-width:840px;
+    min-height:600px;
+    padding:20px;
+    background-color:black;
+}
+
+.modal-caption {
+    height:5vw;
+    width:100%;
+    color:white;
+    &__title {
+        text-decoration: underline;
+    }
+    &__text {
+
+    }
+}
+
+
+.modal-slider {
+    
+    &__slide {
+        min-width:100%;
+        bottom:0;
+        display:flex;
+        justify-content: center;
+    }
+    &__image {
+        height:calc(45vw - 40px);
+        min-height:600px;
+        width:auto;
+    }
+}
+
+.flickity-slider {
+    display: flex;
+    align-items: center;
 }
