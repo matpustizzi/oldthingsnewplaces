@@ -5,7 +5,8 @@ const modalSlider = new flickity( '.js-modal-slider', {
     lazyLoad: 1,
     pageDots: false,
     prevNextButtons: true,
-    percentPosition: true
+    percentPosition: true,
+    setGallerySize: false
 });
 
 const projects = document.getElementsByClassName('js-project');
