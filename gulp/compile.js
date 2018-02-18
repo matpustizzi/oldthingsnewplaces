@@ -11,6 +11,9 @@ const gulp = require('gulp'),
 		return JSON.stringify(slides.map((slide,i)=>{ return slide.fields}));
 	});
 
+marked.setOptions({
+	breaks: true
+})
 markdown.register(env, marked);
 	 
 gulp.task('render', () => {
