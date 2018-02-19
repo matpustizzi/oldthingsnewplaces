@@ -1,5 +1,4 @@
 const flickity = require('flickity');
-require('flickity-imagesloaded');
 
 const modalSlider = new flickity( '.js-modal-slider', {
     lazyLoad: 1,
@@ -26,7 +25,7 @@ const renderSlides = (slides) => {
     return slides.map( (slide,i) => {
         var el = document.createElement('div');
         el.className = 'modal-slider__slide'
-        el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }" ${ slide.description ? `alt="${ slide.description }"` : '' }>`
+        el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ? `alt="${ slide.description }"` : '' }>`
         return el;
     } )
 }
