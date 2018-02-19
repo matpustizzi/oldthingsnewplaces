@@ -1,7 +1,6 @@
 <div class="grid__column grid__column--project-list">
-    
     {% for project in projectList %}
-        <div class="project">
+        <div class="project project--list">
             {% if project.fields.slides %}
                 <div class="slider">
                     {% for slide in project.fields.slides %}
@@ -13,8 +12,7 @@
                     {% endfor %}
                 </div>
             {% endif %}
-            {% if project.fields.title %}<h3>{{ project.fields.title }}</h3>{% endif %}
-            {% if project.fields.shortDescription %}<p>{{ project.fields.shortDescription }}</p>{% endif %}
+            {% include "project-details.html" %}
         </div>
     {% endfor %}
 </div>

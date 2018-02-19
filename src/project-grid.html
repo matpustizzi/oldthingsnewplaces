@@ -4,8 +4,7 @@
         {% for project in column.fields.projectList %}
             <div class="project js-project" {% if project.fields.slides %}data-slides="{{ getSlides(project.fields.slides) }}"{% endif %} data-project="{{ project.fields.title }}">
                 {% include "thumbnail.html" %}
-                {% if project.fields.title %}<h3 class="project__hed">{{ project.fields.title }}</h3>{% endif %}
-                {% if project.fields.shortDescription %}<p class="project__dek">{{ project.fields.shortDescription }}</p>{% endif %}
+                {% include "project-details.html" %}
             </div>
         {% endfor %}
     </div>
