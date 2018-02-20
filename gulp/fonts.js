@@ -1,14 +1,24 @@
+var gulp = require('gulp');
 var Fontmin = require('fontmin');
 
-var fontmin = new Fontmin()
-    .src('src/fonts/*.ttf')
-    .dest('build/fonts');
+gulp.task('copy-fonts',() => {
+    var fontmin = new Fontmin()
+        .src('src/fonts/*.ttf')
+        .dest('build/fonts');
 
-fontmin.run(function (err, files) {
-    if (err) {
-        throw err;
-    }
+    fontmin.run(function (err, files) {
+        if (err) {
+            throw err;
+        }
+    });
 
-    console.log(files[0]);
-    // => { contents: <Buffer 00 01 00 ...> }
 });
+
+// var gulp = require('gulp');
+// var fontmin = require('gulp-fontmin');
+
+// gulp.task('copy-fonts', function () {
+//     return gulp.src('src/fonts/*.ttf')
+//         .pipe(fontmin())
+//         .pipe(gulp.dest('build/fonts'));
+// });
