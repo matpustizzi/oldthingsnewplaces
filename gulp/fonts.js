@@ -11,7 +11,6 @@ gulp.task('copy-fonts',() => {
             throw err;
         }
     });
-
 });
 
 // var gulp = require('gulp');

@@ -19,6 +19,7 @@ gulp.task('fetch', () => {
       }
     ).catch((err) => {
       gutil.log("Error: " + err.code)
+      process.exit(1)
     });
     
     return req;

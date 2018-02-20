@@ -23,7 +23,7 @@ gulp.task('sass', function() {
         .pipe(reload({stream: true}));
 });
 
-gulp.task('serve', ['fetch','render','sass','bundle'], function() {
+gulp.task('serve', ['build'], function() {
 
     browserSync.init({
         server: "./build"
