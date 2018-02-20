@@ -34,7 +34,6 @@
     "require-dir": "^1.0.0",
     "run-sequence": "^2.2.1",
     "sass-module-importer": "^1.4.0",
-    "uglifyify": "^4.0.5",
     "vinyl-source-stream": "^2.0.0",
     "watchify": "^3.10.0"
   }
