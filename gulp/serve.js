@@ -49,11 +49,11 @@ watchify.args.verbose = true;
 
 const bundler = watchify(browserify('./src/js/app.js', watchify.args));
 
-if(process.env.env !== 'development') bundler.transform('uglifyify', { global: true })
-
 bundler.transform(babelify.configure({
     sourceMapRelative: 'build/js'
 }));
+
+if(process.env.env !== 'development') bundler.transform('uglifyify',{global: true})
 
 bundler.on('update', bundle);
 
