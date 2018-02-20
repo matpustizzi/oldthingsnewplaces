@@ -44,7 +44,7 @@ const gutil     = require('gulp-util'),
     browserify  = require('browserify'),
     plumber     = require('gulp-plumber');
 
-watchify.args.debug = process.env.env === 'development';
+watchify.args.debug = true;
 watchify.args.verbose = true;
 
 const bundler = watchify(browserify('./src/js/app.js', watchify.args));
@@ -77,3 +77,21 @@ gulp.task('bundle', function () {
 });
 
 gulp.task('default', ['serve']);
+
+const buffer = require('vinyl-buffer');
+const uglify = require('gulp-uglify');
+
+gulp.task('bundle-prod', function() {
+    return browserify('./src/js/app.js')
+      .transform("babelify", { presets: ["es2015"] })
+      .bundle()
+        .on('error', function (err) {
+            gutil.log(err.message);
+            this.emit("end");
+        })
+      .pipe(plumber())
+      .pipe(source('bundle.js'))
+      .pipe(buffer())
+      .pipe(uglify())
+      .pipe(gulp.dest('./build/js'));
+});
