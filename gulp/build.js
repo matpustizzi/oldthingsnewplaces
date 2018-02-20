@@ -7,5 +7,5 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', function(callback) {
-    runSequence('clean','fetch','copy-fonts','render','sass','bundle',callback);
+    return runSequence('clean','fetch','copy-fonts','render','sass','bundle',callback);
 });

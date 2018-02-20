@@ -15,7 +15,7 @@ gulp.task('sass', function() {
         importer: moduleImporter()
     }
     
-    if(process.env.env != 'development') options.outputStyle = 'compressed'
+    if(process.env.env !== 'development') options.outputStyle = 'compressed'
     
     return gulp.src(src.scss)
         .pipe(sass(options).on('error', sass.logError))
@@ -44,10 +44,12 @@ const gutil     = require('gulp-util'),
     browserify  = require('browserify'),
     plumber     = require('gulp-plumber');
 
-watchify.args.debug = true;
+watchify.args.debug = process.env.env === 'development';
 watchify.args.verbose = true;
 
 const bundler = watchify(browserify('./src/js/app.js', watchify.args));
+
+if(process.env.env !== 'development') bundler.transform('uglifyify', { global: true })
 
 bundler.transform(babelify.configure({
     sourceMapRelative: 'build/js'
