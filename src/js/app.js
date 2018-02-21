@@ -18,7 +18,6 @@ domready(function(){
         })
     });
     
-
     require('./modal');
 
 });
