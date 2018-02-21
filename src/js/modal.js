@@ -25,7 +25,11 @@ const renderSlides = (slides) => {
     return slides.map( (slide,i) => {
         var el = document.createElement('div');
         el.className = 'modal-slider__slide'
-        el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ? `alt="${ slide.description }"` : '' }>`
+        if(slide.file.contentType === "video/mp4") {
+            el.innerHTML = `<video class="js-slide-image modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ slide.description }"` : '' } autoplay loop muted>`
+        } else {
+            el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ? `data-desc="${ slide.description }"` : '' }>`
+        }
         return el;
     } )
 }
@@ -58,5 +62,5 @@ modal.addEventListener('click',(e) => {
 });
 
 modalSlider.on( 'select', function() {
-    captionText.textContent = modalSlider.selectedElement.querySelector('.js-slide-image').alt;
+    captionText.textContent = modalSlider.selectedElement.querySelector('.js-slide-image').dataset.desc;
 });
