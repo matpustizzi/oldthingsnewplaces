@@ -2,7 +2,7 @@
     {% for project in projectList %}
         <div class="project project--list">
             {% if project.fields.slides %}
-                <div class="slider">
+                <div class="slider js-mobile-slider">
                     {% for slide in project.fields.slides %}
                         {% if slide.fields.file %}
                             <div class="slider__slide">

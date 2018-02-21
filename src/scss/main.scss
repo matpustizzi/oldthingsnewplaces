@@ -1,8 +1,8 @@
 
-@import "variables";
+@import "_variables";
 @import "normalize.css";
-@import "resets";
-@import "fonts";
+@import "_resets";
+@import "_fonts";
 
 body {
     font-family:"urw",Arial, Helvetica, sans-serif;
@@ -106,12 +106,12 @@ img,video {
     min-width:100%;
 }
 
-@import "modal";
+@import "_modal";
 
 
 .slider {
     min-height:300px;
-    height:70vh;
+    height:45vh;
     max-height:500px;
     margin-bottom:10px;
     &:after {
