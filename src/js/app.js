@@ -13,7 +13,7 @@ domready(function(){
             pageDots: false,
             prevNextButtons: false,
             percentPosition: true,
-            //setGallerySize: false,
+            setGallerySize: false,
             watchCSS: true
         })
     });
