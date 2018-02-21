@@ -2,7 +2,7 @@
     <div class="grid__column">
         <h2 class="grid__column__hed">{{ column.fields.title }}</h2>
         {% for project in column.fields.projectList %}
-            <div class="project js-project" {% if project.fields.slides %}data-slides="{{ getSlides(project.fields.slides) }}"{% endif %} data-project="{{ project.fields.title }}">
+            <div class="project{% if project.fields.slides %} project--clickable js-project{% endif %}" {% if project.fields.slides %}data-slides="{{ getSlides(project.fields.slides) }}"{% endif %} data-project="{{ project.fields.title }}">
                 {% include "thumbnail.html" %}
                 {% include "project-details.html" %}
             </div>
