@@ -26,7 +26,7 @@ const renderSlides = (slides) => {
         var el = document.createElement('div');
         el.className = 'modal-slider__slide'
         if(slide.file.contentType === "video/mp4") {
-            el.innerHTML = `<video class="js-slide-image modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ slide.description }"` : '' } autoplay loop muted>`
+            el.innerHTML = `<video class="js-slide-image modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ slide.description }"` : '' } autoplay loop muted playsinline>`
         } else {
             el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ? `data-desc="${ slide.description }"` : '' }>`
         }
