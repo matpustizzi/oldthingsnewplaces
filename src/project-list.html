@@ -7,7 +7,7 @@
                         {% if slide.fields.file %}
                             <div class="slider__slide">
                                 {% if slide.fields.file.contentType === "video/mp4" %}
-                                    <video class="slider__image" src="{{ slide.fields.file.url }}" autoplay loop muted>
+                                    <video class="slider__image" src="{{ slide.fields.file.url }}" autoplay loop muted playsinline>
                                 {% else %}
                                     <img class="slider__image" data-flickity-lazyload="{{ slide.fields.file.url }}?fm=jpg&w=750&q=75" alt="">
                                 {% endif %}
