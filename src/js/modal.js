@@ -63,5 +63,5 @@ modal.addEventListener('click',(e) => {
 });
 
 modalSlider.on( 'select', function() {
-    captionText.innerHTML = modalSlider.selectedElement.querySelector('.js-slide-image').dataset.desc;
+    captionText.innerHTML = modalSlider.selectedElement.querySelector('.js-slide-image').dataset.desc || '';
 });
