@@ -1,4 +1,5 @@
 const flickity = require('flickity');
+const htmlspecialchars = require('htmlspecialchars');
 
 const modalSlider = new flickity( '.js-modal-slider', {
     lazyLoad: 1,
@@ -26,9 +27,9 @@ const renderSlides = (slides) => {
         var el = document.createElement('div');
         el.className = 'modal-slider__slide'
         if(slide.file.contentType === "video/mp4") {
-            el.innerHTML = `<video class="js-slide-image modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ slide.description }"` : '' } autoplay loop muted playsinline>`
+            el.innerHTML = `<video class="js-slide-image modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ htmlspecialchars(slide.description) }"` : '' } autoplay loop muted playsinline>`
         } else {
-            el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ? `data-desc="${ slide.description }"` : '' }>`
+            el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ?`data-desc="${ htmlspecialchars(slide.description) }"` : '' }>`
         }
         return el;
     } )
@@ -62,5 +63,5 @@ modal.addEventListener('click',(e) => {
 });
 
 modalSlider.on( 'select', function() {
-    captionText.textContent = modalSlider.selectedElement.querySelector('.js-slide-image').dataset.desc;
+    captionText.innerHTML = modalSlider.selectedElement.querySelector('.js-slide-image').dataset.desc;
 });

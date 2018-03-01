@@ -27,6 +27,7 @@
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
+    "htmlspecialchars": "^1.0.5",
     "json-stringify-safe": "^5.0.1",
     "marked": "^0.3.12",
     "normalize.css": "^8.0.0",
