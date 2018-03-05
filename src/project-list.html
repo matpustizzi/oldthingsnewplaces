@@ -8,6 +8,11 @@
                             <div class="slider__slide">
                                 {% if slide.fields.file.contentType === "video/mp4" %}
                                     <video class="slider__image" src="{{ slide.fields.file.url }}" autoplay loop muted playsinline>
+                                {% elif slide.fields.file.contentType === "text/plain" %}
+                                    <div class="slider__image">
+                                        <iframe class="modal-slider__video-inner js-vimeo-player" src="https://player.vimeo.com/video/{{ slide.fields.title }}?title=0&byline=0&portrait=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
+                                        </iframe>
+                                    </div>
                                 {% else %}
                                     <img class="slider__image" data-flickity-lazyload="{{ slide.fields.file.url }}?fm=jpg&w=750&q=75" alt="">
                                 {% endif %}

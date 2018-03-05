@@ -50,7 +50,8 @@ watchify.args.verbose = true;
 const bundler = watchify(browserify('./src/js/app.js', watchify.args));
 
 bundler.transform(babelify.configure({
-    sourceMapRelative: 'build/js'
+    sourceMapRelative: 'build/js',
+    presets: ["es2015"]
 }));
 
 bundler.on('update', bundle);

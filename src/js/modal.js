@@ -1,5 +1,7 @@
 const flickity = require('flickity');
 const htmlspecialchars = require('htmlspecialchars');
+import Player from '@vimeo/player'
+
 
 const modalSlider = new flickity( '.js-modal-slider', {
     lazyLoad: 1,
@@ -24,12 +26,25 @@ Array.from(projects).forEach((element) => {
 
 const renderSlides = (slides) => {
     return slides.map( (slide,i) => {
-        var el = document.createElement('div');
+        var el = document.createElement('div'),
+            fileType = slide.file.contentType;
         el.className = 'modal-slider__slide'
-        if(slide.file.contentType === "video/mp4") {
-            el.innerHTML = `<video class="js-slide-image modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ htmlspecialchars(slide.description) }"` : '' } autoplay loop muted playsinline>`
+        if (fileType === "video/mp4") {
+            el.innerHTML = `<video class="js-slide-item modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ htmlspecialchars(slide.description) }"` : '' } autoplay loop muted playsinline>`
+        } else if (fileType === 'text/plain') {
+            el.innerHTML = `
+            <div class="js-slide-item modal-slider__video">
+                <iframe 
+                    class="modal-slider__video-inner js-vimeo-player"
+                    src="https://player.vimeo.com/video/${ slide.title }?title=0&byline=0&portrait=0"
+                    frameborder="0" 
+                    webkitallowfullscreen 
+                    mozallowfullscreen 
+                    allowfullscreen>
+                </iframe>
+            </div>`
         } else {
-            el.innerHTML = `<img class="js-slide-image modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ?`data-desc="${ htmlspecialchars(slide.description) }"` : '' }>`
+            el.innerHTML = `<img class="js-slide-item modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ?`data-desc="${ htmlspecialchars(slide.description) }"` : '' }>`
         }
         return el;
     } )
@@ -63,5 +78,22 @@ modal.addEventListener('click',(e) => {
 });
 
 modalSlider.on( 'select', function() {
-    captionText.innerHTML = modalSlider.selectedElement.querySelector('.js-slide-image').dataset.desc || '';
+    var slide = modalSlider.selectedElement.querySelector('.js-slide-item');
+    captionText.innerHTML = slide.dataset.desc || '';
 });
+
+// turn off vimeo video when navigating to new slide
+var selectedEl = modalSlider.selectedElement;
+
+modalSlider.on( 'settle', () => {
+    if ( modalSlider.selectedElement != selectedEl ) {
+        if(selectedEl) {
+            var iframe = selectedEl.querySelector('.js-vimeo-player')
+            if(iframe){
+                const player = new Player(iframe);
+                player.pause()
+            } 
+        }
+        selectedEl = modalSlider.selectedElement;
+    }
+})

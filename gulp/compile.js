@@ -4,7 +4,8 @@ const gulp = require('gulp'),
 	markdown = require('nunjucks-markdown'),
 	marked = require('marked'),
 	fs = require('fs'),
-	templatesDir = 'src',	
+	templatesDir = 'src',
+	plumber	= require('gulp-plumber'),
 	env = nunjucks.configure(templatesDir,{ watch: true, noCache : true });
 
 env.addGlobal("getSlides", function(slides) {
@@ -23,7 +24,12 @@ gulp.task('render', () => {
 		data = pages[0]; // for this project we only have one page, index.html
 
 	return gulp.src([templatesDir + '/index.html'])
+		.on('error', function (err) {
+			gutil.log(err.message);
+			this.emit("end");
+		})
+		.pipe(plumber())
         .pipe(gulpnunjucks.compile( data , { env : env }))
-		.pipe(gulp.dest('build'))		
+		.pipe(gulp.dest('build'))	
 });
 
