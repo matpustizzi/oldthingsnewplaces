@@ -1,11 +1,11 @@
 const button = document.querySelector('.js-open-text-modal')
 const modal = document.querySelector('.js-modal-text')
 
-button.addEventListener('click', function(e) {
+button.addEventListener('click', function (e) {
     openModal();
 });
 
-modal.addEventListener('click',function(e){
+modal.addEventListener('click', function (e) {
     closeModal();
 })
 

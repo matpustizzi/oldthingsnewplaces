@@ -4,7 +4,7 @@ import Player from '@vimeo/player'
 
 Array.from(mobileSliders).forEach((element) => {
 
-    var slider = new flickity( element, {
+    var slider = new flickity(element, {
         lazyLoad: 2,
         pageDots: false,
         prevNextButtons: false,
@@ -15,14 +15,14 @@ Array.from(mobileSliders).forEach((element) => {
 
     var selectedEl = slider.selectedElement;
 
-    slider.on( 'settle', () => {
-        if (slider.selectedElement!=selectedEl) {
+    slider.on('settle', () => {
+        if (slider.selectedElement != selectedEl) {
             if (selectedEl) {
                 var iframe = selectedEl.querySelector('.js-vimeo-player')
-                if (iframe){
+                if (iframe) {
                     const player = new Player(iframe);
                     player.pause()
-                } 
+                }
             }
             selectedEl = slider.selectedElement;
         }

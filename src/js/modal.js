@@ -3,7 +3,7 @@ const htmlspecialchars = require('htmlspecialchars');
 import Player from '@vimeo/player'
 
 
-const modalSlider = new flickity( '.js-modal-slider', {
+const modalSlider = new flickity('.js-modal-slider', {
     lazyLoad: 1,
     pageDots: false,
     prevNextButtons: true,
@@ -18,14 +18,14 @@ const captionText = document.querySelector('.modal-caption__text');
 
 
 Array.from(projects).forEach((element) => {
-    element.addEventListener('click', function(e) {
-      openModal(this.dataset.slides);
-      setModalTitle(this.dataset.project);
+    element.addEventListener('click', function (e) {
+        openModal(this.dataset.slides);
+        setModalTitle(this.dataset.project);
     });
 });
 
 const renderSlides = (slides) => {
-    return slides.map( (slide,i) => {
+    return slides.map((slide, i) => {
         var el = document.createElement('div'),
             fileType = slide.file.contentType;
         el.className = 'modal-slider__slide'
@@ -47,12 +47,12 @@ const renderSlides = (slides) => {
             el.innerHTML = `<img class="js-slide-item modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ?`data-desc="${ htmlspecialchars(slide.description) }"` : '' }>`
         }
         return el;
-    } )
+    })
 }
 
 const openModal = (slides) => {
     var data = JSON.parse(slides)
-    if(data){
+    if (data) {
         modal.classList.add('modal--visible');
         modalSlider.prepend(renderSlides(data));
         modalSlider.resize();
@@ -71,13 +71,13 @@ const closeModal = () => {
     modalSlider.remove(cells);
 }
 
-modal.addEventListener('click',(e) => {
-    if(e.target.classList.contains('js-modal')) {
+modal.addEventListener('click', (e) => {
+    if (e.target.classList.contains('js-modal')) {
         closeModal();
     }
 });
 
-modalSlider.on( 'select', function() {
+modalSlider.on('select', function () {
     var slide = modalSlider.selectedElement.querySelector('.js-slide-item');
     captionText.innerHTML = slide.dataset.desc || '';
 });
@@ -85,14 +85,14 @@ modalSlider.on( 'select', function() {
 // turn off vimeo video when navigating to new slide
 var selectedEl = modalSlider.selectedElement;
 
-modalSlider.on( 'settle', () => {
-    if ( modalSlider.selectedElement != selectedEl ) {
-        if(selectedEl) {
+modalSlider.on('settle', () => {
+    if (modalSlider.selectedElement != selectedEl) {
+        if (selectedEl) {
             var iframe = selectedEl.querySelector('.js-vimeo-player')
-            if(iframe){
+            if (iframe) {
                 const player = new Player(iframe);
                 player.pause()
-            } 
+            }
         }
         selectedEl = modalSlider.selectedElement;
     }
