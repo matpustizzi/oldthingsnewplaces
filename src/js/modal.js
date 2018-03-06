@@ -8,7 +8,8 @@ const modalSlider = new flickity('.js-modal-slider', {
     pageDots: false,
     prevNextButtons: true,
     percentPosition: true,
-    setGallerySize: false
+    setGallerySize: false,
+    arrowShape: 'M50,99.94,0,50,50,0,65,15,40.64,39.35H100V60.58H40.64L65,84.93Z'
 });
 
 const projects = document.getElementsByClassName('js-project');
@@ -72,7 +73,8 @@ const closeModal = () => {
 }
 
 modal.addEventListener('click', (e) => {
-    if (e.target.classList.contains('js-modal')) {
+    console.log(e.target.classList)
+    if (e.target.classList.contains('js-modal') || e.target.classList.contains('js-close-modal')) {
         closeModal();
     }
 });

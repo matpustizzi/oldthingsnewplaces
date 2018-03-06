@@ -1,61 +1,53 @@
 .modal {
-    position:fixed;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    //background-color:rgba($color: #000000, $alpha: .75);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; //background-color:rgba($color: #000000, $alpha: .75);
     align-items: center;
     justify-content: center;
-    display:none;
-    color:white;
+    display: none;
+    color: white;
     &--visible {
-        display:flex;
+        display: flex;
     }
 }
 
-// .modal--text {     
-//     .modal-content {
-//         padding:20px;
-//     }
-// }
-
 .modal-content {
-    background-color:black;
-    position:relative;
-    width:percentage(900/1280);
-    height:50vw;
-    min-width:940px;
-    min-height:700px;
+    background-color: black;
+    position: relative;
+    width: percentage(900/1280);
+    height: 50vw;
+    min-width: 940px;
+    min-height: 700px;
     .modal--text & {
-        padding:20px;
-        @media screen and (max-width:767px){
+        padding: 30px;
+        @media screen and (max-width: 767px) {
             min-width:100%;
-            min-height:100%;
+            min-height: 100%;
         }
     }
 }
 
-
 .modal-slider {
-    position:absolute;
-    left:20px;
-    top:20px;
-    right:20px;
-    bottom:12%;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    right: 20px;
+    bottom: 11.5%;
     &__slide {
-        min-width:100%;
-        height:100%;
-        display:flex;
+        min-width: 100%;
+        height: 100%;
+        display: flex;
         justify-content: center;
     }
     &__image {
-        height:100%;
-        width:auto;
+        height: 100%;
+        width: auto;
     }
     &__video {
         position: relative;
-        width:100%;
+        width: 100%;
         &:before {
             display: block;
             content: "";
@@ -66,23 +58,23 @@
             position: absolute;
             top: 0;
             left: 0;
-            width:100%;
-            height:100%;
+            width: 100%;
+            height: 100%;
         }
     }
 }
 
 .modal-caption {
     position: absolute;
-    top:88%;
-    left:10%;
-    right:8%;
-    bottom:0;
-    color:white;
-    padding-top:10px;
+    top: 88.5%;
+    left: 12%;
+    right: 8%;
+    bottom: 0;
+    color: white;
+    padding-top: 10px;
     &__title {
         text-decoration: underline;
-        margin-right:5px;
+        margin-right: 5px;
     }
 }
 
@@ -93,40 +85,72 @@
 
 .modal-slider {
     .flickity-prev-next-button {
-        bottom:-40px;
-        left:0;
-        right:auto;
-        top:auto;
-        width:20px;
-        height:20px;
+        bottom: -50px;
+        left: 18px;
+        right: auto;
+        top: auto;
+        width: 30px;
+        height: 30px;
+        background-color: transparent;
+        padding: 6px;
+        svg {
+            position: static;
+            width: 100%;
+            height: 100%;
+        }
+        .arrow {
+            fill: white;
+        }
         &.next {
-            left:25px;
+            left: 45px;
         }
     }
 }
 
 .text-grid {
-    display:flex;
-    margin-left:-10px;
-    margin-right:-10px;
+    display: flex;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 .text-grid__column {
-    display:none;
+    display: none;
     &:first-child {
-        display:block;
+        display: block;
     }
     @media #{$bp-large} {
-        display:block;
-        width:33.33%;
-        padding-left:10px;
-        padding-right:10px;
+        display: block;
+        width: 33.33%;
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
 
 .modal--text {
-    h1,h2,h3 {
-        text-decoration:underline;
-        margin-bottom:25px;
+    h1,
+    h2,
+    h3 {
+        text-decoration: underline;
+        margin-bottom: 25px;
+    }
+}
+
+.modal-close {
+    background-color: transparent;
+    border: 0;
+    position: absolute;
+    top: calc(88.5% + 5px);
+    left: 10px;
+    color: white;
+    width: 30px;
+    height: 30px;
+    padding: 6px;
+    &:focus {
+        outline: 0;
+    }
+    svg {
+        width: 100%;
+        height: 100%;
+        fill: white;
     }
 }
