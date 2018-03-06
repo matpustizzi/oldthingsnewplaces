@@ -6,8 +6,9 @@ const gulp = require('gulp'),
 	fs = require('fs'),
 	templatesDir = 'src',
 	plumber = require('gulp-plumber'),
+	dotenv = require('dotenv').config(),
 	env = nunjucks.configure(templatesDir, {
-		watch: true,
+		watch: process.env.dotenv === 'development', // if watch is set to true, then gulp task won't exit. build-task will never close if env is not set to prod
 		noCache: true
 	});
 
