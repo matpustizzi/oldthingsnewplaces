@@ -1,7 +1,7 @@
 var gulp = require('gulp');
 var Fontmin = require('fontmin');
 
-gulp.task('copy-fonts',() => {
+gulp.task('copy-fonts', () => {
     var fontmin = new Fontmin()
         .src('src/fonts/*.ttf')
         .dest('build/fonts');

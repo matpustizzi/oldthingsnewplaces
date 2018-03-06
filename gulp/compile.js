@@ -5,11 +5,16 @@ const gulp = require('gulp'),
 	marked = require('marked'),
 	fs = require('fs'),
 	templatesDir = 'src',
-	plumber	= require('gulp-plumber'),
-	env = nunjucks.configure(templatesDir,{ watch: true, noCache : true });
+	plumber = require('gulp-plumber'),
+	env = nunjucks.configure(templatesDir, {
+		watch: true,
+		noCache: true
+	});
 
-env.addGlobal("getSlides", function(slides) {
-	return JSON.stringify(slides.map((slide,i)=>{ return slide.fields}));
+env.addGlobal("getSlides", function (slides) {
+	return JSON.stringify(slides.map((slide, i) => {
+		return slide.fields
+	}));
 });
 
 marked.setOptions({
@@ -17,10 +22,12 @@ marked.setOptions({
 })
 
 markdown.register(env, marked);
-	 
+
 gulp.task('render', () => {
 
-	const pages = JSON.parse( fs.readFileSync('./api/pages.json', { encoding: 'utf8' })),
+	const pages = JSON.parse(fs.readFileSync('./api/pages.json', {
+			encoding: 'utf8'
+		})),
 		data = pages[0]; // for this project we only have one page, index.html
 
 	return gulp.src([templatesDir + '/index.html'])
@@ -29,7 +36,8 @@ gulp.task('render', () => {
 			this.emit("end");
 		})
 		.pipe(plumber())
-        .pipe(gulpnunjucks.compile( data , { env : env }))
-		.pipe(gulp.dest('build'))	
+		.pipe(gulpnunjucks.compile(data, {
+			env: env
+		}))
+		.pipe(gulp.dest('build'))
 });
-
