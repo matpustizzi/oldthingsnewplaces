@@ -14,10 +14,26 @@
         <div class="grid">
             <div class="grid__column grid__column--masthead">
                 {% markdown %}{{ sidebarText }}{% endmarkdown %}
+                {% markdown %}<a class="text-modal-link js-open-text-modal">{{ aboutLinkText }}</a>{% endmarkdown %}
             </div>
             {% include "project-grid.html" %}
             {% include "project-list.html" %}
         </div>
+        <div class="modal modal--text js-modal-text">
+            <div class="modal-content">
+                <div class="text-grid">
+                    <div class="text-grid__column">
+                        {% markdown %}{{ aboutColumn1 }}{% endmarkdown %}
+                    </div>
+                    <div class="text-grid__column">
+                        {% markdown %}{{ aboutColumn2 }}{% endmarkdown %}
+                    </div>
+                    <div class="text-grid__column">
+                        {% markdown %}{{ aboutColumn3 }}{% endmarkdown %}
+                    </div>
+                </div>
+            </div>
+         </div>
         <div class="modal js-modal">
             <div class="modal-content">
              <div class="modal-slider js-modal-slider">

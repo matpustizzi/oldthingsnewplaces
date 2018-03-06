@@ -53,7 +53,7 @@ a {
         width:100%;
         @media #{$bp-large} {
             display:block;
-            width:percentage(220/1280);
+            width:percentage(210/1280);
             margin-left:10px;
             margin-right:10px;
         }
@@ -140,4 +140,8 @@ a {
     &__image {
        max-height:100%;
     }
+}
+
+.text-modal-link {
+    cursor: pointer;
 }
