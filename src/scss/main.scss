@@ -98,7 +98,7 @@ a {
     margin-bottom:13px;
 
     &--list {
-
+        margin-bottom:30px;
     }
 }
 
@@ -118,7 +118,7 @@ a {
 
 
 .slider {
-    min-height:300px;
+    min-height:200px;
     height:60vw;
     max-height:500px;
     margin-bottom:10px;
@@ -144,4 +144,5 @@ a {
 
 .text-modal-link {
     cursor: pointer;
+    text-decoration:underline;
 }
