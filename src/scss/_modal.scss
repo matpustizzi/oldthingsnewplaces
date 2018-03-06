@@ -11,6 +11,15 @@
     &--visible {
         display: flex;
     }
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+}
+
+.modal.modal--text.modal--visible {
+    @media screen and (max-width: 767px) {
+        display: flex;
+    }
 }
 
 .modal-content {
@@ -67,8 +76,8 @@
 .modal-caption {
     position: absolute;
     top: 88.5%;
-    left: 12%;
-    right: 8%;
+    left: 105px;
+    right: 100px;
     bottom: 0;
     color: white;
     padding-top: 10px;
