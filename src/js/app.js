@@ -1,8 +1,8 @@
-'use strict';
-const domready = require('domready')
+"use strict"
+const domready = require("domready")
 
-domready(function () {
-    require('./mobile-slider')
-    require('./modal')
-    require('./modal-text')
+domready(function() {
+  require("./mobile-slider")
+  require("./modal")
+  require("./modal-text")
 })

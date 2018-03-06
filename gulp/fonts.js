@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 var gulp = require("gulp")
 var Fontmin = require("fontmin")
+=======
+const gulp = require("gulp")
+const Fontmin = require("fontmin")
+>>>>>>> formatting
 
 gulp.task("copy-fonts", () => {
   var fontmin = new Fontmin().src("src/fonts/*.ttf").dest("build/fonts")
@@ -10,6 +15,7 @@ gulp.task("copy-fonts", () => {
     }
   })
 })
+<<<<<<< HEAD
 
 gulp.task("copy-icons", () => {
   return gulp.src("src/icons/**").pipe(gulp.dest("build/icons"))
@@ -23,3 +29,5 @@ gulp.task("copy-icons", () => {
 //         .pipe(fontmin())
 //         .pipe(gulp.dest('build/fonts'));
 // });
+=======
+>>>>>>> formatting

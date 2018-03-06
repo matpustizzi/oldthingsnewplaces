@@ -11,7 +11,10 @@ gulp.task("build", function(callback) {
     "clean",
     "fetch",
     "copy-fonts",
+<<<<<<< HEAD
     "copy-icons",
+=======
+>>>>>>> formatting
     "render",
     "sass",
     "bundle",
@@ -25,7 +28,10 @@ gulp.task("build-prod", function(callback) {
     "clean",
     "fetch",
     "copy-fonts",
+<<<<<<< HEAD
     "copy-icons",
+=======
+>>>>>>> formatting
     "render",
     "sass",
     "bundle-prod",
