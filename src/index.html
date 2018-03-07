@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ title }}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% if metaDescription %}<meta name="description" content="{{ metaDescription }}">{% endif %}
-    <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
-    <script src="/js/bundle.js"></script>
-</head>
-<body>
-    <div class="container">
-        <div class="grid">
-            <div class="grid__column grid__column--masthead">
-                {% markdown %}{{ sidebarText }}{% endmarkdown %}
-                {% markdown %}<a class="text-modal-link js-open-text-modal">{{ aboutLinkText }}</a>{% endmarkdown %}
-            </div>
-            {% include "project-grid.html" %}
-            {% include "project-list.html" %}
-        </div>
-        <div class="modal modal--text js-modal-text">
-            <div class="modal-content">
-                <div class="text-grid">
-                    <div class="text-grid__column">
-                        {% markdown %}{{ aboutColumn1 }}{% endmarkdown %}
-                    </div>
-                    <div class="text-grid__column">
-                        {% markdown %}{{ aboutColumn2 }}{% endmarkdown %}
-                    </div>
-                    <div class="text-grid__column">
-                        {% markdown %}{{ aboutColumn3 }}{% endmarkdown %}
-                    </div>
-                </div>
-            </div>
-         </div>
-        <div class="modal js-modal">
-            <div class="modal-content">
-             <div class="modal-slider js-modal-slider">
-             
-             </div>
-             <button class="modal-close js-close-modal"><svg xmlns="http://www.w3.org/2000/svg" class="js-close-modal" viewBox="0 0 100 100"><path class="js-close-modal" d="M35,50,0,15,15,0,50,35,85,0l15,15L65,50l35,35L85,100,50,65,15,100,0,85Z"/></svg></button>
-             <div class="modal-caption">
-                 <p><span class="modal-caption__title js-modal-title"></span><span class="modal-caption__text js-modal-text"></span></p>
-             </div>
-            </div>
-        </div>
-    </main>
-</body>
+  <head>
+      <meta charset="utf-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <title>{{ title }}</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      {% if metaDescription %}<meta name="description" content="{{ metaDescription }}">{% endif %}
+      <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
+      <script src="/js/bundle.js"></script>
+  </head>
+  <body>
+      <div class="container">
+          <div class="grid">
+              <div class="grid__column grid__column--masthead">
+                  {% markdown %}{{ sidebarText }}{% endmarkdown %}
+                  {% markdown %}<a class="text-modal-link js-open-text-modal">{{ aboutLinkText }}</a>{% endmarkdown %}
+              </div>
+              {% include "project-grid.html" %}
+              {% include "project-list.html" %}
+          </div>
+          <div class="modal js-modal">
+              <div class="modal-content">
+                  <div class="modal-slider js-modal-slider">
+                  
+                  </div>
+                  <button class="modal-close js-close-modal"><svg xmlns="http://www.w3.org/2000/svg" class="js-close-modal" viewBox="0 0 100 100"><path class="js-close-modal" d="M35,50,0,15,15,0,50,35,85,0l15,15L65,50l35,35L85,100,50,65,15,100,0,85Z"/></svg></button>
+                  <div class="modal-caption">
+                      <p><span class="modal-caption__title js-modal-title"></span><span class="modal-caption__text js-modal-text"></span></p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="modal modal--text js-text-modal">
+          <div class="modal-content">
+              <div class="text-grid">
+                  <div class="text-grid__column">
+                      {% markdown %}{{ aboutColumn1 }}{% endmarkdown %}
+                  </div>
+                  <div class="text-grid__column">
+                      {% markdown %}{{ aboutColumn2 }}{% endmarkdown %}
+                  </div>
+                  <div class="text-grid__column">
+                      {% markdown %}{{ aboutColumn3 }}{% endmarkdown %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </body>
 </html>
