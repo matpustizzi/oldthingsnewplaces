@@ -33,7 +33,7 @@ const renderSlides = (slides) => {
             el.innerHTML = `<video class="js-slide-item modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ htmlspecialchars(slide.description) }"` : '' } autoplay loop muted playsinline>`
         } else if (fileType === 'text/plain') {
             el.innerHTML = `
-            <div class="js-slide-item modal-slider__video">
+            <div class="js-slide-item modal-slider__video" ${ slide.description ? `data-desc="${ htmlspecialchars(slide.description) }"` : '' }>
                 <iframe 
                     class="modal-slider__video-inner js-vimeo-player"
                     src="https://player.vimeo.com/video/${
