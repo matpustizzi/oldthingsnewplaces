@@ -7,7 +7,9 @@ const gulp = require("gulp"),
   opts = {
     space: process.env.space_id,
     accessToken: process.env.api_key,
-    host: `${process.env.preview ? "preview" : "cdn"}.contentful.com`
+    host: `${
+      process.env.preview && process.env.preview === "true" ? "preview" : "cdn"
+    }.contentful.com`
   },
   client = contentful.createClient(opts)
 
