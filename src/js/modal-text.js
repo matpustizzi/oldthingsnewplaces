@@ -1,9 +1,5 @@
 const button = document.querySelector(".js-open-text-modal")
-<<<<<<< HEAD
 const modal = document.querySelector(".js-text-modal")
-=======
-const modal = document.querySelector(".js-modal-text")
->>>>>>> formatting
 
 button.addEventListener("click", function(e) {
   openModal()

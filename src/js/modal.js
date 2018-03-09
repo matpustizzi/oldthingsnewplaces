@@ -23,23 +23,6 @@ Array.from(projects).forEach(element => {
   })
 })
 
-<<<<<<< HEAD
-const renderSlides = slides => {
-  return slides.map((slide, i) => {
-    var el = document.createElement("div"),
-      fileType = slide.file.contentType
-    el.className = "modal-slider__slide"
-    if (fileType === "video/mp4") {
-      el.innerHTML = `<video class="js-slide-item modal-slider__image" src="${
-        slide.file.url
-      }" ${
-        slide.description
-          ? `data-desc="${htmlspecialchars(slide.description)}"`
-          : ""
-      } autoplay loop muted playsinline>`
-    } else if (fileType === "text/plain") {
-      el.innerHTML = `
-=======
 //prettier-ignore
 const renderSlides = (slides) => {
     return slides.map((slide, i) => {
@@ -50,7 +33,6 @@ const renderSlides = (slides) => {
             el.innerHTML = `<video class="js-slide-item modal-slider__image" src="${ slide.file.url }" ${ slide.description ? `data-desc="${ htmlspecialchars(slide.description) }"` : '' } autoplay loop muted playsinline>`
         } else if (fileType === 'text/plain') {
             el.innerHTML = `
->>>>>>> formatting
             <div class="js-slide-item modal-slider__video">
                 <iframe 
                     class="modal-slider__video-inner js-vimeo-player"
@@ -63,25 +45,11 @@ const renderSlides = (slides) => {
                     allowfullscreen>
                 </iframe>
             </div>`
-<<<<<<< HEAD
-    } else {
-      el.innerHTML = `<img class="js-slide-item modal-slider__image" data-flickity-lazyload="${
-        slide.file.url
-      }?fm=jpg&w=1800&q=75" ${
-        slide.description
-          ? `data-desc="${htmlspecialchars(slide.description)}"`
-          : ""
-      }>`
-    }
-    return el
-  })
-=======
         } else {
             el.innerHTML = `<img class="js-slide-item modal-slider__image" data-flickity-lazyload="${ slide.file.url }?fm=jpg&w=1800&q=75" ${ slide.description ?`data-desc="${ htmlspecialchars(slide.description) }"` : '' }>`
         }
         return el
     })
->>>>>>> formatting
 }
 
 const openModal = slides => {
@@ -90,10 +58,6 @@ const openModal = slides => {
     modal.classList.add("modal--visible")
     modalSlider.prepend(renderSlides(data))
     modalSlider.resize()
-<<<<<<< HEAD
-    //modalSlider.reposition();
-=======
->>>>>>> formatting
   }
 }
 
