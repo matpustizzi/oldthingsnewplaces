@@ -6,7 +6,12 @@ button.addEventListener("click", function(e) {
 })
 
 modal.addEventListener("click", function(e) {
-  closeModal()
+  if (
+    e.target.classList.contains("js-text-modal") ||
+    e.target.classList.contains("js-close-modal")
+  ) {
+    closeModal()
+  }
 })
 
 const openModal = () => {

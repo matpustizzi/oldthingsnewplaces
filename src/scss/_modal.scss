@@ -163,6 +163,7 @@
   width: 30px;
   height: 30px;
   padding: 6px;
+  cursor: pointer;
   &:focus {
     outline: 0;
   }
@@ -170,5 +171,14 @@
     width: 100%;
     height: 100%;
     fill: white;
+  }
+  &--text {
+    left: 30px;
+    bottom: 30px;
+    top: auto;
+  }
+
+  @media screen and (max-width: 767px) {
+    display: none;
   }
 }

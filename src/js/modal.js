@@ -73,7 +73,6 @@ const closeModal = () => {
 }
 
 modal.addEventListener("click", e => {
-  console.log(e.target.classList)
   if (
     e.target.classList.contains("js-modal") ||
     e.target.classList.contains("js-close-modal")
