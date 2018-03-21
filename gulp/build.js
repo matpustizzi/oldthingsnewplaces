@@ -32,3 +32,5 @@ gulp.task("build-prod", function(callback) {
     callback
   )
 })
+
+gulp.task("default",["build-prod"])
