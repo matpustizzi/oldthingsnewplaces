@@ -31,7 +31,7 @@ any activity in contentful will trigger `gulp build-prod` in netlify using webho
 netlify is also set to auto-deploy from master branch, this can be turned off if desired.
 
 
-<a href="https://www.contentful.com/" rel="nofollow" target=“_blank”><img src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg" style="max-width:200px" alt="Powered by Contentful" /></a>
+<a href="https://www.contentful.com/" rel="nofollow" target=“_blank”><img src="https://images.contentful.com/fo9twyrwpveg/44baP9Gtm8qE2Umm8CQwQk/c43325463d1cb5db2ef97fca0788ea55/PoweredByContentful_LightBackground.svg" width="100px" alt="Powered by Contentful" /></a>
 
 
 
