@@ -10,14 +10,7 @@ a simple portfolio site driven by contentful
 npm install
 ```
 
-2. Create an .env file in project root:
-
-```
-space_id=<contentful space id>
-api_key=<contentful access token>
-env=<development||production>
-preview=<true||false>
-```
+2. Create an .env file in project root based on .env.sample
 
 3. Run `gulp` to start local development server
 
