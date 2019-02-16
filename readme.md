@@ -4,11 +4,7 @@ a simple portfolio site driven by contentful
 
 ## getting started
 
-1. install dependencies
-
-```
-npm install
-```
+1. Run `npm i` to install dependencies
 
 2. Create an .env file in project root based on .env.sample
 
