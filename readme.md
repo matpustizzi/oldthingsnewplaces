@@ -18,7 +18,7 @@ a simple portfolio site driven by contentful
 
 `gulp serve` creates a browserSync server for local development
 
-`gulp build-prod` builds minified assets for production
+`gulp build-prod` creates a production build in /build
 
 ## deployment
 
